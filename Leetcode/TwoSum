@@ -1,0 +1,37 @@
+https://leetcode.com/problems/two-sum/ 
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    //BRUTE FORCE
+    // var numArr = [];
+    // for(var i =0;i<nums.length-1;i++){
+    //     for(var j=i+1;j<nums.length;j++){
+    //         if(nums[i]+nums[j] == target){
+    //             numArr.push(i);
+    //             numArr.push(j);
+    //         }
+    //     }
+    // }
+    // return numArr;
+    
+    //Map Approach
+    var  map = {};
+    var numArr = [];
+    for(var i=0;i<nums.length;i++){
+        map[nums[i]] = i;
+    }
+    
+    console.log(map);
+    
+    for(var i=0;i<nums.length;i++){
+        if(map[target-nums[i]]){
+            numArr.push(i);
+            numArr.push(map[target-nums[i]]);
+            break;
+        }
+    }
+    return numArr;
+};
